@@ -1,5 +1,6 @@
 body {
   font-family: "Open Sans";
+  font-size: 12px;
 }
 
 .rounded() {
@@ -7,7 +8,7 @@ body {
 }
 
 #options, #display {
-  display: inline-block;
+  float: left;
 }
 
 #options {
@@ -16,6 +17,15 @@ body {
 
 #display {
   width: 65%;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul, ol, li {
+    list-style: none;
+  }
 }
 
 .selector-option {
@@ -24,9 +34,20 @@ body {
   padding: 4px;
   margin: 4px;
 
+  .selector {
+    display: none;
+  }
+
   &:hover, &.selected {
     cursor: pointer;
     background-color: #eee;
+
+    .label {
+      display: none;
+    }
+    .selector {
+      display: block;
+    }
   }
 }
 

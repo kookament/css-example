@@ -1,10 +1,18 @@
 selectors =
   'class': 
-    desc: '.class'
-    selector: '.class'
+    label: '.%class/%'
+    selector: '.list-item'
   'id': 
-    desc: '#id'
-    selector: '#id'
+    label: '#%id/%'
+    selector: '#list'
+  '*':
+    label: '%*/%'
+    selector: '*'
+  'tag':
+    label: '%tag/%'
+    selector: 'div'
+
+interpolateLabel = (l) -> l.replace('/%', '</i>').replace('%', '<i>')
 
 escape = (text) -> $('<div/>').text(text).html()
 
@@ -15,19 +23,22 @@ $.fn.inline = (indent = 0) ->
     close = "</#{@nodeName.toLowerCase()}>"
     whitespace = new Array(4 * indent).join('&nbsp;')
 
-    $(@).children().inline(indent + 1)
-
-    open = "<div class='open tag'>#{whitespace}#{escape(open)}</div>"
-    close = "<div class='close tag'>#{whitespace}#{escape(close)}</div>"
-
-    $(@).html "#{open}#{@.innerHTML}#{close}"
+    $this = $(@)
+    if $this.children().length
+      $this.children().inline(indent + 1)
+      open = "<div class='open tag'>#{whitespace}#{escape(open)}</div>"
+      close = "<div class='close tag'>#{whitespace}#{escape(close)}</div>"
+      $this.html "#{open}#{@.innerHTML}#{close}"
+    else
+      # Here, 'open' is actually the whole tag.
+      $this.html "<div class='open close tag'>#{whitespace}#{escape(open)}</div>"
   return @
 
 $(document).ready ->
   opt_template = Handlebars.compile($('#option-template').html())
   $opts = $('#options')
   for k, v of selectors
-    $opts.append opt_template v
+    $opts.append opt_template { label: interpolateLabel(v.label), selector: v.selector}
   $('#display').children().inline()
   $('.selector-option').click ->
     $('.selector-option').removeClass 'selected'

@@ -15,7 +15,8 @@
 
     <script id="option-template" type="text/x-handlebars-template">
         <div class="selector-option" data-selector="{{selector}}">
-            <div class="name">{{{desc}}}</div>
+            <div class="label">{{{label}}}</div>
+            <div class="selector"><i>ex:</i> {{selector}}</div>
         </div>
     </script>
   </head>
@@ -24,9 +25,19 @@
     </div>
 
     <div id="display">
-        <div class="class">
-            <span id="id"/>
-        </div>
+        <article class="list-container">
+            <ul id="list">
+                <li class="list-item">
+                    <div>item 1</div>
+                </li>
+                <li class="list-item">
+                    <div>item 2</div>
+                </li>
+                <li class="list-item">
+                    <div>item 3</div>
+                </li>
+            </ul>
+        </article>
     </div>
   </body>
 </html>
