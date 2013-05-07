@@ -60,6 +60,6 @@ $(document).ready ->
     $(@).addClass 'selected'
 
     $('.highlighted').removeClass 'highlighted'
-    $('#display').find($(@).data('selector')).find('> .tag').addClass 'highlighted'
+    $('#display').find($(@).data('selector')).not('span').children('.tag').addClass 'highlighted'
 
   
