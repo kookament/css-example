@@ -41,6 +41,7 @@ $(document).ready ->
     $opts.append opt_template { label: interpolateLabel(v.label), selector: v.selector}
   $('#display').children().inline()
   $('.selector-option').click ->
+    $('#display').addClass 'something-selected'
     $('.selector-option').removeClass 'selected'
     $(@).addClass 'selected'
 
