@@ -1,3 +1,42 @@
+body {
+  font-family: "Open Sans";
+}
+
+.rounded() {
+  border-radius: 2px;
+}
+
+#options, #display {
+  display: inline-block;
+}
+
+#options {
+  width: 25%;
+}
+
+#display {
+  width: 65%;
+}
+
 .selector-option {
-    
+  .rounded();
+  border: 1px solid #eee;
+  padding: 4px;
+  margin: 4px;
+
+  &:hover, &.selected {
+    cursor: pointer;
+    background-color: #eee;
+  }
+}
+
+.tag {  
+  .rounded();
+  border: 1px solid transparent;
+  padding: 4px;
+  margin: 4px;
+
+  &.highlighted {
+    border: 1px solid green;
+  }
 }
