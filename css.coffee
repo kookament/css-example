@@ -21,8 +21,8 @@ selectors = [
     examples: [
       { label: '[%attribute/%]',           selector: '[name]',            spec: 2 }
       { label: '[%attribute/%=%value/%]',  selector: '[name="list one"]', spec: 2 }
-      { label: '[%attribute/%~=%value/%]', selector: '[name~=is]',        spec: 2 }
-      { label: '[%attribute/%|=%value/%]', selector: '[name|=this]',      spec: 2 }
+      { label: '[%attribute/%~=%value/%]', selector: '[name~="list"]',    spec: 2 }
+      { label: '[%attribute/%|=%value/%]', selector: '[name|="list"]',    spec: 2 }
     ]
   }
 ]

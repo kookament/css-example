@@ -2,14 +2,37 @@ body {
   font-family: "Open Sans";
 }
 
-.rounded() {
-  border-radius: 2px;
-}
-
 #options {
   margin-left: 20px;
   width: 25%;
   float: left;
+
+  .option {
+    border-radius: 2px;
+    border: 1px solid #eee;
+    padding: 4px;
+    margin: 4px;
+
+    .selector {
+      display: none;
+    }
+
+    .spec {
+      float: right;
+    }
+
+    &:hover, &.selected {
+      cursor: pointer;
+      background-color: #eee;
+
+      .label {
+        display: none;
+      }
+      .selector {
+        display: block;
+      }
+    }
+  }
 }
 
 #display {
@@ -26,36 +49,7 @@ body {
   ul, ol, li {
     list-style: none;
   }
-}
 
-.option {
-  .rounded();
-  border: 1px solid #eee;
-  padding: 4px;
-  margin: 4px;
-
-  .selector {
-    display: none;
-  }
-
-  .spec {
-    float: right;
-  }
-
-  &:hover, &.selected {
-    cursor: pointer;
-    background-color: #eee;
-
-    .label {
-      display: none;
-    }
-    .selector {
-      display: block;
-    }
-  }
-}
-
-#display {
   &.something-selected {
     .tag {
       opacity: 0.4;
