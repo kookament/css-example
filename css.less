@@ -28,7 +28,7 @@ body {
   }
 }
 
-.selector-option {
+.option {
   .rounded();
   border: 1px solid #eee;
   padding: 4px;
@@ -36,6 +36,10 @@ body {
 
   .selector {
     display: none;
+  }
+
+  .spec {
+    float: right;
   }
 
   &:hover, &.selected {
@@ -61,10 +65,11 @@ body {
   .tag {  
     border-left: 4px solid transparent;
     margin-left: -4px;
+    padding: 0 4px;
 
     &.highlighted {
       opacity: 1.0;
-      border-color: #ccc;
+      border-color: #aaa;
       &.close {
         background-color: #efefef;
       }
